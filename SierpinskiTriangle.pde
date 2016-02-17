@@ -4,22 +4,28 @@ public void setup() {
 	size(500,500);
 	noStroke();
   c = new Colors(true);
-}
-public void draw() {
-	background(c.getDifferentColor());
-  c.run();
-  fill(c.getColor());
+  background(0);
   sierpinski(0,height,500);
-}
-public void mouseDragged() {
 
 }
+
+// public void draw() { //doesnt work on web browser
+//   c.run();
+// 	background(c.getDifferentColor());
+//   fill(c.getColor());
+//   sierpinski(0,height,500);
+// }
+
 public void sierpinski(int x, int y, int len) {
   if (len <= 10) {
   	// fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+    c.run();
+    fill(c.getColor());
   	triangle(x,y,x+len/2,y-len,x+len,y);
   } else {
   	// fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+    c.run();  
+    fill(c.getColor());
   	sierpinski(x, y, len/2);
   	sierpinski(x+len/2, y, len/2);
   	sierpinski(x+len/4, y-len/2, len/2);
@@ -89,14 +95,14 @@ class Colors {
   Colors(int startingVal, int startingRate, boolean random) {
     // rgb = {new NiceColor(startingVal, startingRate, random), new NiceColor(startingVal, startingRate, random), new NiceColor(startingVal, startingRate, random)}; //doesnt work?
 
-    // for (int i = 0; i < 3; i++) {
-    //   rgb[i] = new NiceColor(startingVal, startingRate, random);
-    // }
+    for (int i = 0; i < 3; i++) {
+      rgb[i] = new NiceColor(startingVal, startingRate, random);
+    }
   }
 
   Colors(boolean random) {
     for (int i = 0; i < 3; i++) {
-      rgb[i] = new NiceColor((float)(Math.random()*256), 1, random);
+      rgb[i] = new NiceColor((float)(Math.random()*256), 1.5, random);
     }
   }
 
