@@ -1,5 +1,5 @@
 Colors c;
-
+//colors class makes program not run incompletely in web browser
 public void setup() {
 	size(500,500);
 	noStroke();
@@ -18,14 +18,12 @@ public void setup() {
 
 public void sierpinski(int x, int y, int len) {
   if (len <= 10) {
-  	// fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-    c.run();
-    fill(c.getColor());
+    // c.run();
+    // fill(c.getColor());
   	triangle(x,y,x+len/2,y-len,x+len,y);
   } else {
-  	// fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-    c.run();  
-    fill(c.getColor());
+    // c.run();  
+    // fill(c.getColor());
   	sierpinski(x, y, len/2);
   	sierpinski(x+len/2, y, len/2);
   	sierpinski(x+len/4, y-len/2, len/2);
