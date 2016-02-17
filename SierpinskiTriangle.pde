@@ -1,9 +1,9 @@
-BreathingColors c;
+Colors c;
 
 public void setup() {
 	size(500,500);
 	noStroke();
-  c = new BreathingColors(true);
+  c = new Colors(true);
 }
 public void draw() {
 	background(c.getDifferentColor());
@@ -83,18 +83,18 @@ class NiceColor {
   }
 }
 
-class BreathingColors {
+class Colors {
   NiceColor[] rgb = new NiceColor[3];
 
-  BreathingColors(int startingVal, int startingRate, boolean random) {
-    // rgb = {new NiceColor(startingVal, startingRate, random), new NiceColor(startingVal, startingRate, random), new NiceColor(startingVal, startingRate, random)}; //gib mi ehwor dun no y
+  Colors(int startingVal, int startingRate, boolean random) {
+    // rgb = {new NiceColor(startingVal, startingRate, random), new NiceColor(startingVal, startingRate, random), new NiceColor(startingVal, startingRate, random)}; //doesnt work?
 
-    for (int i = 0; i < 3; i++) {
-      rgb[i] = new NiceColor(startingVal, startingRate, random);
-    }
+    // for (int i = 0; i < 3; i++) {
+    //   rgb[i] = new NiceColor(startingVal, startingRate, random);
+    // }
   }
 
-  BreathingColors(boolean random) {
+  Colors(boolean random) {
     for (int i = 0; i < 3; i++) {
       rgb[i] = new NiceColor((float)(Math.random()*256), 1, random);
     }
